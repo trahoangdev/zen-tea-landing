@@ -1,0 +1,294 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Warm milk white background */
+    --background: 42 25% 94%;
+    --foreground: 30 15% 25%;
+
+    /* Natural stone card tones */
+    --card: 42 30% 97%;
+    --card-foreground: 30 15% 25%;
+
+    --popover: 42 30% 97%;
+    --popover-foreground: 30 15% 25%;
+
+    /* Matcha green primary */
+    --primary: 140 35% 45%;
+    --primary-foreground: 42 30% 97%;
+
+    /* Soft sage secondary */
+    --secondary: 130 20% 85%;
+    --secondary-foreground: 30 15% 25%;
+
+    /* Muted stone tones */
+    --muted: 42 20% 90%;
+    --muted-foreground: 30 10% 50%;
+
+    /* Muted gold accent */
+    --accent: 40 40% 75%;
+    --accent-foreground: 30 20% 20%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 40 20% 98%;
+
+    --border: 42 20% 88%;
+    --input: 42 20% 88%;
+    --ring: 140 35% 45%;
+
+    --radius: 0.75rem;
+    
+    /* Custom Zen design tokens */
+    --zen-cream: 42 35% 93%;
+    --zen-stone: 30 10% 65%;
+    --zen-matcha: 140 40% 42%;
+    --zen-matcha-light: 135 35% 82%;
+    --zen-gold: 42 50% 68%;
+    --zen-sage: 130 25% 88%;
+    
+    /* Gradients */
+    --gradient-zen: linear-gradient(135deg, hsl(42 35% 93%), hsl(135 35% 92%));
+    --gradient-matcha: linear-gradient(180deg, hsl(140 40% 42%), hsl(140 35% 35%));
+    
+    /* Shadows */
+    --shadow-zen: 0 4px 24px -8px hsl(140 35% 45% / 0.15);
+    --shadow-soft: 0 2px 16px -4px hsl(30 10% 50% / 0.08);
+    
+    /* Transitions */
+    --transition-zen: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode: deep charcoal with warm undertones */
+    --background: 30 20% 8%;
+    --foreground: 42 20% 95%;
+
+    --card: 30 18% 12%;
+    --card-foreground: 42 20% 95%;
+
+    --popover: 30 18% 12%;
+    --popover-foreground: 42 20% 95%;
+
+    --primary: 140 40% 55%;
+    --primary-foreground: 30 20% 8%;
+
+    --secondary: 30 15% 18%;
+    --secondary-foreground: 42 20% 95%;
+
+    --muted: 30 12% 20%;
+    --muted-foreground: 35 10% 65%;
+
+    --accent: 40 45% 60%;
+    --accent-foreground: 30 20% 8%;
+
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 42 20% 95%;
+
+    --border: 30 12% 20%;
+    --input: 30 12% 20%;
+    --ring: 140 40% 55%;
+    
+    /* Dark mode custom tokens */
+    --zen-cream: 30 18% 15%;
+    --zen-stone: 35 8% 55%;
+    --zen-matcha: 140 45% 50%;
+    --zen-matcha-light: 135 30% 35%;
+    --zen-gold: 42 45% 55%;
+    --zen-sage: 130 20% 25%;
+    
+    --gradient-zen: linear-gradient(135deg, hsl(30 18% 15%), hsl(135 25% 18%));
+    --gradient-matcha: linear-gradient(180deg, hsl(140 45% 50%), hsl(140 40% 40%));
+    
+    --shadow-zen: 0 4px 24px -8px hsl(140 40% 55% / 0.25);
+    --shadow-soft: 0 2px 16px -4px hsl(0 0% 0% / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Enhanced animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Logo styles */
+  .logo {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: all 0.3s ease;
+  }
+
+  .logo:hover {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    transform: scale(1.05);
+  }
+
+  /* Dark mode logo adjustments */
+  .dark .logo {
+    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.1));
+  }
+
+  .dark .logo:hover {
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.15));
+  }
+
+  /* Hero text improvements */
+  .hero-subtitle {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-title {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Better contrast for light mode */
+  .light .hero-subtitle {
+    color: hsl(var(--foreground) / 0.95);
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+  }
+
+  .light .hero-title {
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
